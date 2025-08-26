@@ -227,6 +227,10 @@ nav ul li a::after{
     transition: opacity 0.5s;
 }
 
+.work:hover .layer {
+    opacity: 1;              /* show overlay on hover */
+}
+
 .layer h3{
     font-weight: 500;
     margin-bottom: 15px;
