@@ -191,41 +191,49 @@ nav ul li a::after{
     grid-gap: 40px;
     margin-top: 50px; 
 }
-.work{
+.work {
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    background: #111; /* fallback for non-image projects */
+    min-height: 250px; /* keeps uniform height */
 }
-.work img{
+.work img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;   /* makes image fill box nicely */
     border-radius: 10px;
     display: block;
     transition: transform 0.5s;
 }
-.layer{
+
+/* Overlay Layer */
+.layer {
     width: 100%;
-    height: 0%;
-    background: linear-gradient(rgba(0,0,0,0.6),#ff004f);
+    height: 100%;  /* keep full size instead of 0% */
+    background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
     border-radius: 10px;
     position: absolute;
     left: 0;
     bottom: 0;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
-    text-align: center;  
+    padding: 20px;
+    text-align: center;
     font-size: 14px;
-    transition: height 0.5s;
-} 
+    opacity: 0;            /* hidden initially */
+    transition: opacity 0.5s;
+}
+
 .layer h3{
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    color: #fff;
 }
 .layer a{
-    margin-top: 20px;
+    margin-top: 15px;
     color: #ff004f;
     text-decoration: none;
     font-size: 18px;
@@ -241,7 +249,7 @@ nav ul li a::after{
     transform: scale(1.1);
 }
 .work:hover .layer{
-    height: 100%;
+    opacity: 1; 
 }
 .btn{
     display: block;
